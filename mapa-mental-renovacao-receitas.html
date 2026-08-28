@@ -104,7 +104,7 @@ h2.section{font-family:var(--font-display); font-weight:500; font-size:22px; mar
       <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Não</text>
     </svg>
     <div class="branch-row">
-      <div class="branch"><div class="outcome o-nao"><span class="otitle">Não renova</span>Antibiótico → teleconsulta médica. Manipulado → retorna ao prescritor. GLP-1 → só se prescrito por médico Pipo.</div></div>
+      <div class="branch"><div class="outcome o-nao"><span class="otitle">Não renova</span>Antibiótico → teleconsulta médica (30 min). Manipulado → retorna ao prescritor. GLP-1 → só se prescrito por médico Pipo.</div></div>
       <div class="branch"><div class="outcome o-encam">Segue para as perguntas obrigatórias</div></div>
     </div>
     <div class="arrow"></div>
@@ -150,55 +150,42 @@ h2.section{font-family:var(--font-display); font-weight:500; font-size:22px; mar
     </svg>
     <div class="branch-row">
       <div class="branch"><div class="outcome o-ok"><span class="otitle">Interconsulta médica direta</span>Vai direto para o time médico, sem enfermagem.</div></div>
-      <div class="branch"><div class="outcome o-encam"><span class="otitle">Teleconsulta de enfermagem (30 min)</span>Falta algum critério. Antibiótico pode ir direto para médica.</div></div>
+      <div class="branch"><div class="outcome o-encam"><span class="otitle">Teleconsulta de enfermagem (30 min)</span>Falta algum critério. Antibiótico vai direto para teleconsulta médica (30 min). Pedido divergente da cartela/registro: renovar só o que está registrado.</div></div>
     </div>
     <div class="arrow"></div>
 </div>
 <h2 class="section">Fluxo — pedido de exames</h2>
 <div class="flow">
-<div class="decision"><div class="txt">Pedido veio de profissional não médico?</div></div>
+<div class="step"><span class="num">1</span><span class="lbl">Verificar o tempo do pedido anterior — antes de olhar quem prescreveu</span></div>
+<div class="arrow"></div>
+<div class="decision"><div class="txt">Checkup/rotina em dia, ou sintoma-dirigido desatualizado há mais de 3 meses?</div></div>
+    <svg class="connector" viewBox="0 0 620 110" preserveAspectRatio="xMidYMin meet">
+      <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9Z" fill="#54709c"/></marker></defs>
+      <path d="M310 4 C 310 40, 200 40, 140 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
+      <path d="M310 4 C 310 40, 420 40, 480 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
+      <rect x="64.0" y="26" width="272.0" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
+      <text x="200" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Checkup/rotina, sem sintoma novo</text>
+      <rect x="309.5" y="26" width="221.0" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
+      <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Sintoma-dirigido, &gt;3 meses</text>
+    </svg>
+    <div class="branch-row">
+      <div class="branch"><div class="outcome o-encam">Segue para a origem do pedido</div></div>
+      <div class="branch"><div class="outcome o-atencao"><span class="otitle">Teleconsulta de enfermagem</span>Reavaliar se a necessidade do exame ainda existe antes de qualquer nova solicitação.</div></div>
+    </div>
+    <div class="arrow"></div>
+<div class="decision"><div class="txt">Pedido veio de profissional médico ou não médico?</div></div>
     <svg class="connector" viewBox="0 0 620 110" preserveAspectRatio="xMidYMin meet">
       <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9Z" fill="#54709c"/></marker></defs>
       <path d="M310 4 C 310 40, 200 40, 140 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
       <path d="M310 4 C 310 40, 420 40, 480 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
       <rect x="171.0" y="26" width="58" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="200" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Sim</text>
-      <rect x="357.5" y="26" width="125.0" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Não (é médico)</text>
+      <text x="200" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Médico</text>
+      <rect x="376.25" y="26" width="87.5" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
+      <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Não médico</text>
     </svg>
     <div class="branch-row">
-      <div class="branch"><div class="outcome o-atencao"><span class="otitle">Análise técnica médica</span>Nunca transcrito na íntegra — médico decide manter, ajustar ou remover itens.</div></div>
-      <div class="branch"><div class="outcome o-encam">Segue para tipo de exame</div></div>
-    </div>
-    <div class="arrow"></div>
-<div class="decision"><div class="txt">É checkup/rotina (hemograma, lipídico, glicemia, TSH)?</div></div>
-    <svg class="connector" viewBox="0 0 620 110" preserveAspectRatio="xMidYMin meet">
-      <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9Z" fill="#54709c"/></marker></defs>
-      <path d="M310 4 C 310 40, 200 40, 140 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
-      <path d="M310 4 C 310 40, 420 40, 480 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
-      <rect x="6.25" y="26" width="387.5" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="200" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Sim, sem sintomas novos + pedido anterior da Pipo</text>
-      <rect x="327.5" y="26" width="185.0" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Não (sintoma-dirigido)</text>
-    </svg>
-    <div class="branch-row">
-      <div class="branch"><div class="outcome o-ok"><span class="otitle">Pode renovar</span></div></div>
-      <div class="branch"><div class="outcome o-encam">Verificar desatualização</div></div>
-    </div>
-    <div class="arrow"></div>
-<div class="decision"><div class="txt">Desatualizado há mais de 3 meses?</div></div>
-    <svg class="connector" viewBox="0 0 620 110" preserveAspectRatio="xMidYMin meet">
-      <defs><marker id="ah" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M1 1L9 5L1 9Z" fill="#54709c"/></marker></defs>
-      <path d="M310 4 C 310 40, 200 40, 140 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
-      <path d="M310 4 C 310 40, 420 40, 480 92" fill="none" stroke="#7f9bc4" stroke-width="2.5" stroke-linecap="round" marker-end="url(#ah)"/>
-      <rect x="171.0" y="26" width="58" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="200" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Sim</text>
-      <rect x="391.0" y="26" width="58" height="26" rx="13" fill="#eef2fa" stroke="#c3cfe6" stroke-width="1"/>
-      <text x="420" y="43" font-family="Manrope" font-weight="700" font-size="14" letter-spacing="0.02em" fill="#202d42" text-anchor="middle">Não</text>
-    </svg>
-    <div class="branch-row">
-      <div class="branch"><div class="outcome o-atencao"><span class="otitle">Teleconsulta de enfermagem</span>Reavaliar se a necessidade do exame ainda existe.</div></div>
-      <div class="branch"><div class="outcome o-ok"><span class="otitle">Segue análise técnica normal</span></div></div>
+      <div class="branch"><div class="outcome o-atencao"><span class="otitle">Teleconsulta de Enfermagem (30 min)</span>Análise técnica da enfermagem — decide manter, ajustar ou pedir apoio da médica. A médica decide se renova sem tele adicional, ou se agenda teleconsulta médica.</div></div>
+      <div class="branch"><div class="outcome o-atencao"><span class="otitle">Teleconsulta de Enfermagem (30 min)</span>Enfermagem avalia o tipo de exame e alinha expectativa com o membro; encaminha para interconsulta médica avaliar a necessidade real de emissão.</div></div>
     </div>
     <div class="arrow"></div>
 </div>
@@ -214,7 +201,7 @@ h2.section{font-family:var(--font-display); font-weight:500; font-size:22px; mar
     <li>Branca especial (2 vias) — dentro dos critérios e prazo</li>
   </ul></div>
 </div>
-<div class="footer">Mapa mental gerado a partir do protocolo escrito de Renovação de Receitas / Pedido de Exames (Pipo Saúde, 26/08/2026). Paleta e tipografia seguem os tokens de marca vigentes (pipo-brand-core).</div>
+<div class="footer">Mapa mental gerado a partir do protocolo escrito de Renovação de Receitas / Pedido de Exames (Pipo Saúde, atualizado em 27/08/2026). Paleta e tipografia seguem os tokens de marca vigentes (pipo-brand-core).</div>
 </div>
 </body>
 </html>
